@@ -62,3 +62,13 @@ flatbuild
 
 # Snap
 *.snap
+
+# Local build tooling (compiled with compile.bat)
+/tools/
+aqtinstall.log
+
+# Packaging artifacts (compile.bat steps 9/10)
+/NSISPlugins/
+/PrismLauncherX-*.zip
+/PrismLauncherX-Setup-*.exe
+/PrismLauncher-Setup.exe

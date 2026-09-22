@@ -308,6 +308,9 @@ void NewInstanceDialog::setSuggestedIcon(const QString& key)
         return;
     }
 
+    // Remember the suggested icon so it is used for the created instance as well.
+    m_instIconKey = key;
+
     auto icon = APPLICATION->icons()->getIcon(key);
 
     ui->iconButton->setIcon(icon);

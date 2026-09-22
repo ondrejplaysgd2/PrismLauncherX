@@ -123,12 +123,15 @@ void CustomPage::loaderFilterChanged()
         m_ui->loaderVersionList->setExactFilter(BaseVersionList::ParentVersionRole, "AAA");  // empty list
         m_ui->loaderVersionList->setEmptyString(tr("No Minecraft version is selected."));
         m_ui->loaderVersionList->setEmptyMode(VersionListView::String);
+        suggestCurrent();
         return;
     }
     if (m_ui->noneFilter->isChecked()) {
         m_ui->loaderVersionList->setExactFilter(BaseVersionList::ParentVersionRole, "AAA");  // empty list
         m_ui->loaderVersionList->setEmptyString(tr("No mod loader is selected."));
         m_ui->loaderVersionList->setEmptyMode(VersionListView::String);
+        m_selectedLoader.clear();
+        suggestCurrent();
         return;
     }
     if (m_ui->neoForgeFilter->isChecked()) {
@@ -214,6 +217,26 @@ QString CustomPage::selectedLoaderName() const
     return QString();
 }
 
+QString CustomPage::selectedLoaderIcon() const
+{
+    if (m_ui->neoForgeFilter->isChecked()) {
+        return "neoforged";
+    }
+    if (m_ui->forgeFilter->isChecked()) {
+        return "forge";
+    }
+    if (m_ui->fabricFilter->isChecked()) {
+        return "fabricmc";
+    }
+    if (m_ui->quiltFilter->isChecked()) {
+        return "quiltmc";
+    }
+    if (m_ui->liteLoaderFilter->isChecked()) {
+        return "liteloader";
+    }
+    return QString();
+}
+
 void CustomPage::suggestCurrent()
 {
     if (!isOpened) {
@@ -226,13 +249,15 @@ void CustomPage::suggestCurrent()
     }
 
     // There isn't a selected version if the version list is empty
-    if (m_ui->loaderVersionList->selectedVersion() == nullptr) {
+    if (m_ui->loaderVersionList->selectedVersion() == nullptr || selectedLoaderName().isEmpty()) {
         m_dialog->setSuggestedPack(m_selectedVersion->descriptor(), new VanillaCreationTask(m_selectedVersion));
+        m_dialog->setSuggestedIcon("default");
     } else {
-        QString suggestedName = QString("%1 %2").arg(m_selectedVersion->descriptor(), selectedLoaderName());
+        QString suggestedName = QString("%1 %2").arg(selectedLoaderName(), m_selectedVersion->descriptor());
         m_dialog->setSuggestedPack(suggestedName, new VanillaCreationTask(m_selectedVersion, m_selectedLoader, m_selectedLoaderVersion));
+        auto iconKey = selectedLoaderIcon();
+        m_dialog->setSuggestedIcon(iconKey.isEmpty() ? "default" : iconKey);
     }
-    m_dialog->setSuggestedIcon("default");
 }
 
 void CustomPage::setSelectedVersion(BaseVersion::Ptr version)

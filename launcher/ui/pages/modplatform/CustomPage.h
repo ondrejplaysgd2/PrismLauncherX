@@ -66,6 +66,9 @@ class CustomPage : public QWidget, public BasePage {
     QString selectedLoader() const;
     QString selectedLoaderName() const;
 
+    /// Returns the key of the icon to use for the currently selected mod loader, or an empty string if "None" is selected.
+    QString selectedLoaderIcon() const;
+
    public slots:
     void setSelectedVersion(BaseVersion::Ptr version);
     void setSelectedLoaderVersion(BaseVersion::Ptr version);

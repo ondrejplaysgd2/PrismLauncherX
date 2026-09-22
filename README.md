@@ -112,7 +112,7 @@ Note that if you build this software without removing the provided API keys in [
 If you do not agree with these terms and conditions, then remove the associated API keys from the [CMakeLists.txt](CMakeLists.txt) file by setting them to an empty string (`""`).
 
 ## Compiling instructions
-<strike>Only need Git installed.</strike>
+<strike>Only need Git installed.</strike>  
 You need Git, CMake, vcpkg, curl, Microsoft Visual Studio Community (2022+, with Desktop development with C++ enabled for compiler), 7-Zip and NSIS.
 First, use Git to clone this repository by running the command below:
 ```cmd

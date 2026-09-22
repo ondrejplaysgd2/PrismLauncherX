@@ -60,7 +60,8 @@ The translation effort for Prism Launcher is hosted on [Weblate](https://hosted.
 
 ## Building
 
-If you want to build Prism Launcher yourself, check the [build instructions](https://prismlauncher.org/wiki/development/build-instructions).
+<strike>If you want to build Prism Launcher yourself, check the [build instructions](https://prismlauncher.org/wiki/development/build-instructions).</strike>
+Clone this repository and run the compile.bat script. Instructions are if you scroll further down.
 
 ## Sponsors & Partners
 
@@ -109,6 +110,15 @@ Note that if you build this software without removing the provided API keys in [
 - [CurseForge 3rd Party API Terms and Conditions](https://support.curseforge.com/en/support/solutions/articles/9000207405-curse-forge-3rd-party-api-terms-and-conditions)
 
 If you do not agree with these terms and conditions, then remove the associated API keys from the [CMakeLists.txt](CMakeLists.txt) file by setting them to an empty string (`""`).
+
+## Compiling instructions
+Only need Git installed.
+First, use Git to clone this repository by running the command below:
+```cmd
+git clone https://github.com/ondrejplaysgd2/PrismLauncherX
+```
+After that finishes, run the compile.bat. This should start the compile. This will download all of Qt (which is over 1 GB in size, so may take a long time depending on your network speeds), install Python, etc.
+After that's finished, open the `install` folder and run `PrismLauncher.exe`. This should open the launcher.
 
 ## License [![https://github.com/PrismLauncher/PrismLauncher/blob/develop/LICENSE](https://img.shields.io/github/license/PrismLauncher/PrismLauncher?label=License&logo=gnu&color=C4282D)](LICENSE)
 

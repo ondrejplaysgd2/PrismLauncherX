@@ -61,7 +61,7 @@ The translation effort for Prism Launcher is hosted on [Weblate](https://hosted.
 ## Building
 
 <strike>If you want to build Prism Launcher yourself, check the [build instructions](https://prismlauncher.org/wiki/development/build-instructions).</strike>  
-Clone this repository and run the compile.bat script. Instructions are if you scroll further down.
+Clone this repository and run the compile.bat script. Instructions are if you scroll further down, or just use [this link](https://github.com/ondrejplaysgd2/PrismLauncherX?tab=readme-ov-file#compiling-instructions).
 
 ## Sponsors & Partners
 
